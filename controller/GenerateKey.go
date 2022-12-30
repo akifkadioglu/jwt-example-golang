@@ -1,7 +1,7 @@
 package controller
 
 import (
-	"jwtExample/helpers"
+	//"jwtExample/helpers"
 	"jwtExample/models"
 	"time"
 
@@ -21,9 +21,10 @@ func GenerateKey(id uuid.UUID) string {
 
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
 
-	t, err := token.SignedString([]byte(helpers.GetEnvVariable("KEY")))
+	t, err := token.SignedString([]byte("asd"))
 	if err != nil {
-		return err.Error()
+		panic("Failed to create token")
 	}
+
 	return t
 }
